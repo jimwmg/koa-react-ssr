@@ -30,12 +30,12 @@ log(chalk.red('servers starting....'));
 
 
 
-//前端代码构建 服务进程
+//前端代码构建 服务进程  scripts/wds-start
 //const feCodeWatchProcess = spawn('npm', ['run', 'fe:watch'],{stdio:'inherit'});
 const feCodeWatchProcess = spawn('npm', ['run', 'wds:watch', localHostIp], { stdio: 'inherit', shell: process.platform === 'win32' });
 
 //服务端代码监控和编译进程
-//服务端代码监控和编译进程
+//服务端代码监控和编译进程  scripts/svr-code-watch
 const svrCodeWatchProcess = spawn('npm', ['run', 'svr:watch'], {
     shell: process.platform === 'win32'
 });

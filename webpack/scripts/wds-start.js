@@ -28,7 +28,7 @@ freePort(proConfig.wdsPort);
 const clientConfig = require('../webpack.dev.config');
 
 
-//wds 配置
+//wds 配置  webpack-dev-server
 const getWdsConfig = require('./webpack-dev-server.config');
 
 // 创建webpack compiler

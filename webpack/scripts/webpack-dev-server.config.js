@@ -12,7 +12,7 @@ module.exports = function (port, publicPath) {
         publicPath: publicPath,//必须和 webpack.dev.cnofig保持一致
         hot: true,
         progress: true,
-        open: false,
+        open: true,
         compress: true,
         watchContentBase: true,
         watchOptions: {

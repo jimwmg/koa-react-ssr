@@ -5,12 +5,13 @@ const resolvePath = (pathstr) => path.resolve(__dirname, pathstr);
 const webpack=require('webpack');
 const proConfig = require('../src/share/pro-config');
 
-
+const HtmlPlugin = require("html-webpack-plugin");
 module.exports = {
     mode: 'development',
     entry: {
         main:['react-hot-loader/patch',resolvePath('../src/client/app/index.js')] //入口文件
     },
+    target: "web",
     output: {
         filename: '[name].js',
         path: resolvePath('../dist/static'),
@@ -61,7 +62,12 @@ module.exports = {
             'process.env': { NODE_ENV: '"development"' },
             '__IS_PROD__': false,
             '__SERVER__': false
-        })
+        }),
+        new HtmlPlugin({
+            template: resolvePath('../src/client/public/index.html'),
+            // scriptLoading:'blocking',//
+            inject:true
+          }),
     ],
     optimization: {
         splitChunks: {
